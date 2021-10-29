@@ -3,6 +3,10 @@ int soma(int a, int b) {
   return a + b;
 }
 
+int exec(int a, int b, int Function(int, int) fn) {
+  return fn(a, b);
+}
+
 main() {
   int a = 3;
   var conjunto = {0, 1, 2, 4};
@@ -55,4 +59,19 @@ main() {
   //executando funções
   soma(1, 10);
   print('O valor da soma é: ${soma(2, 3)}');
+
+  final r = soma(20, 5);
+  print('O valor da soma é: $r');
+
+//conventional function
+  final result = exec(2, 20, (a, b) {
+    return a - b;
+  });
+
+  print('O resultado é: $result');
+
+// arrow function
+  final result2 = exec(2, 20, (a, b) => a * b);
+
+  print('O resultado é: $result2');
 }
