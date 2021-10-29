@@ -20,6 +20,23 @@ class Produto3 {
   Produto3(this.nome, this.preco);
 }
 
+class Produto4 {
+  String nome;
+  double preco = 0;
+  //Parametro nomeado
+  Produto4({this.nome = '', this.preco = 9.99});
+}
+
+imprimirProduto({String nome = '', double preco = 0}) {
+  print('O produto ${nome} tem preco R\$${preco}!!!');
+}
+
+imprimirProduto2(int qtde, {String nome = '', double preco = 0}) {
+  for (var i = 0; i < qtde; i++) {
+    print('O produto ${nome} tem preco R\$${preco}!!!');
+  }
+}
+
 main() {
   var p1 = new Produto();
   p1.nome = 'Caderno';
@@ -35,4 +52,13 @@ main() {
 
   var p4 = Produto3('Canetinha', 4.59);
   print('O produto ${p4.nome} tem preco R\$${p4.preco}');
+
+  var p5 = Produto4(nome: 'Canetão', preco: 7.99);
+  var p6 = Produto4(nome: 'Canetão2');
+
+  print('O produto ${p5.nome} tem preco R\$${p5.preco}');
+  print('O produto ${p6.nome} tem preco R\$${p6.preco}');
+
+  imprimirProduto(nome: p5.nome, preco: p5.preco);
+  imprimirProduto2(5, nome: p5.nome, preco: p5.preco);
 }
